@@ -1,5 +1,6 @@
 /*
 Author: Ashmit JaiSarita Gupta
+Purpose: To create function for calculating fibonacci Number at nth position using itterative and recursive method, And to understand why reccursive method is not always good.
 Date Created: 06-10-2021
 */
 #include <stdio.h>

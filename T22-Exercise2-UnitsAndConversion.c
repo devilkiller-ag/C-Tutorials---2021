@@ -1,5 +1,13 @@
 /*
 Author: Ashmit JaiSarita Gupta
+Purpose: Exercise 2 -  Write a program which converts the following units into another.
+
+kms to miles
+inches to foot
+cms to inches
+pound to kgs
+inches to meters
+
 Date Created: 06-10-2021
 */
 #include <stdio.h>
