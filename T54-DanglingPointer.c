@@ -50,8 +50,37 @@ How to Avoid the Dangling Pointer Errors?
  The dangling pointer introduces nasty bugs in our C programming and these bugs frequently become security holes at a time. These dandling pointer errors can be avoided by initializing the pointer value to the NULL. If we assign the NULL value to the pointer, then the pointer will not point to the memory location that has been freed. By assigning the NULL value to the pointer means that the pointer is not pointing to any memory location.
 */
 #include <stdio.h>
+#include <stdlib.h>
+
+int* functionDangling();
+
 int main()
 {
-    
+    // Case 1: De-allocation of memmory block
+    int *ptr = (int*)malloc(7*sizeof(int));
+    ptr[0] = 34;
+    ptr[1] = 36;
+    ptr[2] = 64;
+    ptr[3] = 4;
+    free(ptr); // ptr is now a dangling pointer
+
+    // Case 2: Function returning local Variable address
+    int * dangPtr = functionDangling(); // dangPtr is now a dangling pointer
+
+    // Case 3: If a variable goes out of scope
+    int *danglingPtr3;
+    {
+        int a = 23;
+        danglingPtr3 = &a;
+    }
+    //Here variable a goes out of scope which means danglingPtr3 is pointing to a location which is freed and hence danglingPtr3 is now a dangling pointer
+
     return 0;
+}
+
+int* functionDangling()
+{
+    int a, b, sum;
+    a = 34, b = 364;
+    return &sum;
 }
